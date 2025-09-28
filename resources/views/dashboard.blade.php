@@ -209,7 +209,7 @@
                     <span class="close">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('ventes.pdf') }}" method="post" class="space-y-4">
+                    <form action="{{ route('ventes.pdf') }}" method="post" target="_blank" class="space-y-4">
                         @csrf
                         <div>
                             <label for="date_deb" class="block text-sm font-medium text-gray-700 mb-1">Date de
@@ -240,17 +240,17 @@
         // <!-- Chart.js -->
         document.addEventListener('DOMContentLoaded', function () {
             // Graphique 1: Utilisateurs par rôle
+            let userPertype = @json($userPertype);
             const ctx1 = document.getElementById('totalOrdersChart').getContext('2d');
             new Chart(ctx1, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Admin', 'Utilisateur', 'Modérateur'],
+                    labels: ['Admin', 'Utilisateur'],
                     datasets: [{
-                        data: [5, 12, 3],
+                        data: [userPertype.admin.length, userPertype.user.length],
                         backgroundColor: [
                             '#FF6384',
                             '#36A2EB',
-                            '#FFCE56'
                         ]
                     }]
                 },
@@ -262,16 +262,23 @@
 
             // Graphique 2: Clients par type
             const ctx2 = document.getElementById('customerGrowthChart').getContext('2d');
+            let clientPertype = @json($clientPertype);
             new Chart(ctx2, {
                 type: 'pie',
                 data: {
-                    labels: ['Régulier', 'Occasionnel', 'VIP'],
+                    labels: ['Etudiant','Professeur','Personnel admin','Invité'],
                     datasets: [{
-                        data: [45, 25, 10],
+                        data: [
+                            clientPertype.etudiant?.length || 0,
+                            clientPertype.professeur?.length || 0,
+                            clientPertype.personnel_admin?.length || 0,
+                            clientPertype.invite?.length || 0
+                        ],
                         backgroundColor: [
                             '#4BC0C0',
                             '#9966FF',
-                            '#FF9F40'
+                            '#FF9F40',
+                            '#FC0170'
                         ]
                     }]
                 },
@@ -283,13 +290,17 @@
 
             // Graphique 3: Ventes vs Clients
             const ctx3 = document.getElementById('totalRevenueChart').getContext('2d');
+            let clients = @json($nbre_clients);
+            let ventesDay = @json($platVenduTotal);
+
+            console.log([clients, ventesDay]);
             new Chart(ctx3, {
                 type: 'bar',
                 data: {
-                    labels: ['Ventes aujourd\'hui', 'Total Clients'],
+                    labels: [ 'Total Clients','Ventes aujourd\'hui'],
                     datasets: [{
                         label: 'Statistiques',
-                        data: [28, 80],
+                        data: [clients, ventesDay],
                         backgroundColor: [
                             '#3e95cd',
                             '#8e5ea2'

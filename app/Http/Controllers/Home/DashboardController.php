@@ -40,12 +40,13 @@ class DashboardController extends Controller
             ->selectRaw('SUM(ventes.nbre_plat * plats.prix_plat) as total')
             ->value('total');
 
-
+        $userPertype = User::all()->groupBy('role');
+        $clientPertype = Client::all()->groupBy('type_client');
 
 
         return view('dashboard',
             compact('nbre_users','nbre_clients',
-                'platVenduUser','platVenduTotal','revenuUser','revenuTotal')
+                'platVenduUser','platVenduTotal','revenuUser','revenuTotal','userPertype','clientPertype')
         );
     }
 }
