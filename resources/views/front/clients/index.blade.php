@@ -102,7 +102,7 @@
                         <tr class="hover:bg-gray-50 transition-colors duration-150">
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">#{{ $client->id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $client->nom_client }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ ucfirst($client->type_client) }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $client->type_client == 'personnel_admin' ? 'Personnel Admin' : ucfirst($client->type_client)  }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $client->phone_client ?? '—' }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $client->created_by ?? 'Non spécifié' }}</td>
                             @if(Auth::User()->role =='admin')
@@ -167,7 +167,7 @@
                             <option value="">Sélectionnez un type</option>
                             <option value="etudiant">Étudiant</option>
                             <option value="professeur">Professeur</option>
-                            <option value="personnel admin">Personnel Administratif</option>
+                            <option value="personnel_admin">Personnel Administratif</option>
                             <option value="invite">Invité</option>
                         </select>
                     </div>
@@ -223,7 +223,7 @@
                                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border">
                             <option value="etudiant">Étudiant</option>
                             <option value="professeur">Professeur</option>
-                            <option value="personnel admin">Personnel Administratif</option>
+                            <option value="personnel_admin">Personnel Administratif</option>
                             <option value="invite">Invité</option>
                         </select>
                     </div>

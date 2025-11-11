@@ -35,7 +35,7 @@ class ClientController extends Controller
         {
             $request->validate([
                 'nom_client' => 'required|string|max:255',
-                'type_client' => 'required|in:etudiant,professeur,personnel admin,invite',
+                'type_client' => 'required|in:etudiant,professeur,personnel_admin,invite',
                 'phone_client' => 'nullable|string|max:15',
                 'created_by' => 'string'
             ]);
@@ -71,7 +71,7 @@ class ClientController extends Controller
         //
         $request->validate([
             'nom_client' => 'required|string|max:255',
-            'type_client' => 'required|in:etudiant,professeur,personnel admin,invite',
+            'type_client' => 'required|in:etudiant,professeur,personnel_admin,invite',
             'phone_client' => 'nullable|string|max:15',
         ]);
 
