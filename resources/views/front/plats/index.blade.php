@@ -111,6 +111,7 @@
                                 <i class="fas fa-eye mr-1"></i> Voir
                             </button>
 
+                            @if(Auth::User()->role == 'admin')
                             {{-- Bouton Modifier --}}
                             <button type="button"
                                     onclick="openEditModal({{ $plat->id }}, '{{ $plat->nom_plat }}', '{{ $plat->cuisson_plat }}', '{{ $plat->prix_plat }}', '{{ $plat->quantite_plat }}')"
@@ -118,7 +119,7 @@
                                 <i class="fas fa-edit mr-1"></i> Modifier
                             </button>
 
-                            {{-- Bouton Supprimer --}}
+{{--                             Bouton Supprimer--}}
                             <form class="p-0 m-0" action="{{ route('plats.destroy', $plat->id) }}" method="POST"
                                   onsubmit="return confirm('Voulez-vous vraiment supprimer ce plat ?');">
                                 @csrf
@@ -128,6 +129,7 @@
                                     <i class="fas fa-trash mr-1"></i> Supprimer
                                 </button>
                             </form>
+                            @endif
                         </td>
 
                     </tr>

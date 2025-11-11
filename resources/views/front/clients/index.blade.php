@@ -92,7 +92,9 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Type</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Téléphone</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Ajouté par</th>
+                        @if(Auth::User()->role == 'admin')
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Actions</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -103,6 +105,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ ucfirst($client->type_client) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $client->phone_client ?? '—' }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $client->created_by ?? 'Non spécifié' }}</td>
+                            @if(Auth::User()->role =='admin')
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <div class="flex items-center gap-3">
                                     {{-- Bouton Modifier --}}
@@ -125,6 +128,7 @@
                                     </form>
                                 </div>
                             </td>
+                                @endif
                         </tr>
                     @empty
                         <tr>

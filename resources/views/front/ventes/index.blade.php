@@ -100,7 +100,9 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Total</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Date</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Vendu par</th>
+                        @if(Auth::User()->role == 'admin')
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Actions</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -116,8 +118,10 @@
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{{ $vente->date_vente }}</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{{ $vente->user->name }}</td>
+                            @if(Auth::User()->role == 'admin')
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
                                 <div class="flex items-center justify-center space-x-2">
+
                                     {{-- Bouton Modifier --}}
                                     <button type="button"
                                             onclick="openEditModal({{ $vente->id }}, '{{ $vente->client_id }}', '{{ $vente->plat_id }}', '{{ $vente->nbre_plat }}')"
@@ -139,6 +143,7 @@
                                     </form>
                                 </div>
                             </td>
+                            @endif
                         </tr>
                     @empty
                         <tr>
