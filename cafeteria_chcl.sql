@@ -36,6 +36,7 @@ CREATE TABLE `cache` (
 
 LOCK TABLES `cache` WRITE;
 /*!40000 ALTER TABLE `cache` DISABLE KEYS */;
+INSERT INTO `cache` VALUES ('laravel-cache-test@gmail.com|127.0.0.1','i:1;',1762860499),('laravel-cache-test@gmail.com|127.0.0.1:timer','i:1762860499;',1762860499);
 /*!40000 ALTER TABLE `cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +80,7 @@ CREATE TABLE `clients` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +89,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (2,'jonas pierre','professeur','42090789','2025-09-09 22:34:56','2025-09-09 22:34:56',NULL),(3,'paul','etudiant','42090789','2025-09-09 22:46:26','2025-09-09 22:46:26','Ventoy');
+INSERT INTO `clients` VALUES (2,'jonas pierre','personnel_admin','42090789','2025-09-09 22:34:56','2025-11-12 00:05:31',NULL),(3,'paul','etudiant','42090789','2025-09-09 22:46:26','2025-09-09 22:46:26','Ventoy'),(4,'Bertha','invite','42090789','2025-09-30 19:26:22','2025-09-30 19:26:22','Ventoy'),(5,'Vinchy','professeur','42090789','2025-11-11 23:32:51','2025-11-11 23:32:51','Test'),(6,'Charles','personnel_admin','42090789','2025-11-11 23:41:42','2025-11-11 23:41:42','Test'),(7,'jonas','personnel_admin','42090789','2025-11-11 23:42:24','2025-11-11 23:42:24','Test');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +247,7 @@ CREATE TABLE `plats` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +256,7 @@ CREATE TABLE `plats` (
 
 LOCK TABLES `plats` WRITE;
 /*!40000 ALTER TABLE `plats` DISABLE KEYS */;
-INSERT INTO `plats` VALUES (2,'Riz','grille',500.00,8,'2025-09-08 17:58:13','2025-09-11 00:55:48'),(4,'Ble','cuit',100.00,64,'2025-09-09 16:58:18','2025-09-10 08:12:51');
+INSERT INTO `plats` VALUES (2,'Riz','grille',500.00,8,'2025-09-08 17:58:13','2025-11-12 00:06:37'),(4,'Ble','cru',100.00,78,'2025-09-09 16:58:18','2025-11-12 00:07:11'),(6,'Pizza','cuit',1000.00,499,'2025-09-30 19:27:17','2025-11-12 00:00:52'),(7,'Pitimi','cuit',12.00,122,'2025-11-11 23:28:28','2025-11-12 00:08:00');
 /*!40000 ALTER TABLE `plats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,7 +286,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('Qi8fng2vYXNlnuTozSr0WQoqIk14w8xlcNTh5PZN',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoidll3WGV0d1ZmTks4RHlUR1hTQk80Nzk4UXJQN21URWxzQ21RN1ZITiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM4OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvcHJvamV0L2Rhc2hib2FyZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1759071178);
+INSERT INTO `sessions` VALUES ('o9LVEGakHQQMwzGme7elyPvqFNNo6UxHGQ6znho8',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZXJlVlNmbVhKTnprU0NXenZRQlRMZnUwUzVsTUE0bHV2TGRSMDE1biI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9maWxlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1762888150);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,7 +345,7 @@ CREATE TABLE `ventes` (
   CONSTRAINT `ventes_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
   CONSTRAINT `ventes_plat_id_foreign` FOREIGN KEY (`plat_id`) REFERENCES `plats` (`id`),
   CONSTRAINT `ventes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +354,7 @@ CREATE TABLE `ventes` (
 
 LOCK TABLES `ventes` WRITE;
 /*!40000 ALTER TABLE `ventes` DISABLE KEYS */;
-INSERT INTO `ventes` VALUES (1,2,2,1,1,'2025-09-09','2025-09-10 00:58:27','2025-09-10 08:00:55'),(2,3,4,1,1,'2025-09-09','2025-09-10 01:23:37','2025-09-10 01:23:37'),(3,2,4,1,15,'2025-09-10','2025-09-10 08:12:51','2025-09-10 08:12:51');
+INSERT INTO `ventes` VALUES (1,4,2,1,1,'2025-09-09','2025-09-10 00:58:27','2025-11-12 00:06:37'),(2,3,4,1,1,'2025-09-09','2025-09-10 01:23:37','2025-09-10 01:23:37'),(4,4,6,1,1,'2025-09-30','2025-09-30 19:28:07','2025-09-30 19:28:07'),(7,4,7,7,1,'2025-11-11','2025-11-11 23:58:38','2025-11-12 00:08:00'),(8,5,4,1,1,'2025-11-11','2025-11-12 00:07:11','2025-11-12 00:07:11');
 /*!40000 ALTER TABLE `ventes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -366,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-28 10:58:43
+-- Dump completed on 2025-11-11 14:14:57
